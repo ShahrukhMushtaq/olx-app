@@ -1,0 +1,54 @@
+<div class="container toppad" *ngIf="auth.isLoggedIn(); else noUser">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h2 class="text-center panel-title">Post an Ad</h2>
+    </div>
+    <div class="panel-body">
+      <form [formGroup]="adForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" placeholder="Title" formControlName="title">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="category">Category</label>
+            <select id="category" class="form-control" formControlName="category">
+              <option>Food</option>
+              <option>Vehicles</option>
+              <option>Home Apliances</option>
+              <option>Furniture</option>
+              <option>Cosmetics</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="model">Model/Year</label>
+            <input type="text" class="form-control" id="model" placeholder="Model" formControlName="model">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="price">Price</label>
+            <input type="number" class="form-control" id="price" placeholder="Price" formControlName="price">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="desc">Description</label>
+          <textarea class="form-control" name="" id="desc" rows="3" formControlName="description"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="productImage">Upload Image</label>
+          <input type="file" class="form-control-file" accept="Image/*" id="productImage" (change)="onChange($event)" #fileInput>
+        </div>
+        <input type="submit" [disabled]="adForm.invalid" value="Submit" class="btn btn-primary">
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<ng-template #noUser>
+  <div class="alert alert-danger">
+    <strong>Please Login!</strong> You must login to your account before submitting an Ad.
+    <button type="button" class="btn btn-danger" routerLink="/login">Login</button>
+  </div>
+</ng-template>

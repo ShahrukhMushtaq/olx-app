@@ -1,0 +1,19 @@
+<div class="row" *ngIf="adds">
+  <div class="col-md-4" *ngFor="let ad of adds">
+    <div class="card mb-4 shadow-sm">
+      <img class="card-img-top" height="250px" src="https://olx-back.herokuapp.com/{{ad.productImage}}" alt="Card image cap">
+      <!-- <img class="card-img-top" height="250px" src="http://localhost:3000/{{ad.productImage}}" alt="Card image cap"> -->
+      <div class="card-body">
+        <p class="card-text">{{ad.title}}</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <button type="submit" routerLink="/ad-detail/{{ad._id}}" class="btn btn-sm btn-outline-secondary">View</button>
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            <button type="submit" *ngIf="auth.isLoggedIn()" class="btn btn-sm btn-outline-secondary" (click)="mark(ad)">Mark this!</button>
+          </div>
+          <small class="text-muted">{{ad.price | currency}}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

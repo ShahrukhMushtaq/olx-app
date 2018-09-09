@@ -1,0 +1,50 @@
+{
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/*.css",
+          "/*.js",
+          "/*.json"
+        ],
+        "urls": []
+      }
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**"
+        ],
+        "urls": []
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "tasks-users-api",
+      "urls": [
+        "/signup/add-user",
+        "/user/**",
+        "/api/login",
+        "api/submit-ad/fulladd/**",
+        "/api/submit-ad",
+        "api/submit-ad/ad/**",
+        "/api/search-ad"
+      ],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 50,
+        "maxAge": "1h",
+        "timeout": "5s"
+      }
+    }
+  ]
+}

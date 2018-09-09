@@ -1,0 +1,20 @@
+<div *ngIf="adds">
+  <h1 class="text-center text-info">Your Ads</h1>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let ad of adds">
+      <div class="card mb-4 shadow-sm">
+        <img class="card-img-top" height="250px" src="https://olx-back.herokuapp.com/{{ad.productImage}}" alt="Card image cap">
+        <!-- <img class="card-img-top" height="250px" src="http://localhost:3000/{{ad.productImage}}" alt="Card image cap"> -->
+        <div class="card-body">
+          <p class="card-text">{{ad.title}}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <input type="submit" value="View Full Detail" class="btn btn-sm btn-outline-secondary" routerLink="/ad-detail/{{ad._id}}">              &nbsp;&nbsp;
+              <input type="button" value="Delete" class="btn btn-sm btn-outline-secondary" (click)="deleteAd(ad._id)">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
