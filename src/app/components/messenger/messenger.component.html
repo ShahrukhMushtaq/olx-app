@@ -1,3 +1,5 @@
-<p>
-  messenger works!
-</p>
+<h2>Using Sockt.io</h2>
+<input type="text" id="msg" [(ngModel)]="msg" name="msg">
+<button (click)="sendMessage(msg)">Send</button>
+
+<p *ngFor="let m of chat">{{chat}}</p>

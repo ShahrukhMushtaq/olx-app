@@ -23,6 +23,7 @@ import { AdDetailComponent } from './components/ad-detail/ad-detail.component';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { MessengerComponent } from './components/messenger/messenger.component';
+import { WebsocketService } from './services/websocket.service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyD4jMROPDW8zm7yg1vR5_Ql7tu0znKsZ1E",
@@ -67,7 +68,7 @@ export const firebaseConfig = {
     ]),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [AuthService, AdsService, MessagingService],
+  providers: [AuthService, AdsService, MessagingService, WebsocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
