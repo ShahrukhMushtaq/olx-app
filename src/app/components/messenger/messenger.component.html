@@ -1,5 +1,6 @@
 <h2>Using Sockt.io</h2>
-<input type="text" id="msg" [(ngModel)]="msg" name="msg">
-<button (click)="sendMessage(msg)">Send</button>
+<input type="text" class="form-control" id="msg" [(ngModel)]="msgg" name="msgg">
+<br />
+<button class="btn btn-primary" (click)="sendMessage(msgg)">Send</button>
 
 <p *ngFor="let m of chat">{{chat}}</p>

@@ -9,7 +9,7 @@ import { MessagingService } from '../../services/messaging.service';
 export class MessengerComponent implements OnInit {
 
   chat:any;
-  constructor(private msg: MessagingService) { }
+  constructor(public msg: MessagingService) { }
 
   ngOnInit() {
     this.msg.messages.subscribe(msg => {
@@ -18,8 +18,8 @@ export class MessengerComponent implements OnInit {
     })
   }
 
-  sendMessage() {
-    this.msg.sendMsg("Test Message");
+  sendMessage(msg) {
+    this.msg.sendMsg(msg);
   }
 
 }
