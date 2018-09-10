@@ -68,7 +68,7 @@ export const firebaseConfig = {
     ]),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [AuthService, AdsService, MessagingService, WebsocketService],
+  providers: [AuthService, AdsService,MessagingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

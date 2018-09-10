@@ -13,15 +13,15 @@ export class MessagingService {
   messages: Subject<any>;
 
   constructor(private http: HttpClient, private ws: WebsocketService) {
-    this.messages = <Subject<any>>ws
-      .connect()
-      .map((response: any): any => {
-        return response;
-      })
+    // this.messages = <Subject<any>>ws
+    //   .connect()
+    //   .map((response: any): any => {
+    //     return response;
+    //   })
   }
 
   sendMsg(msg) {
-    this.messages.next(msg);
+    // this.messages.next(msg);
   }
 
   addPushSubscriber(sub: any) {
